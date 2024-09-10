@@ -3,8 +3,11 @@ import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
 import type { Project } from '../interfaces/project.interface';
 import { v4 as uuidv4 } from 'uuid';
+import { useLocalStorage } from '@vueuse/core';
 
-const initialload = (): Project[] => {
+/*const initialload = (): Project[] => {
+  const projects = localStorage.getItem('projects') ?? [];
+
   return [
     {
       id: uuidv4(),
@@ -17,10 +20,10 @@ const initialload = (): Project[] => {
       tasks: [],
     },
   ];
-};
+};*/
 
 export const useProjectsStore = defineStore('projects', () => {
-  const projects = ref<Project[]>(initialload());
+  const projects = ref(useLocalStorage<Project[]>('projects', []));
 
   const addProject = (name: String) => {
     if (name.length === 0) return;

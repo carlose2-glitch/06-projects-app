@@ -1,3 +1,3 @@
 <template>
-  <h1>sad</h1>
+  <router-view />
 </template>

@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col">
     <!-- Top Menu -->
-    <TopMenu />
-    <main>
+    <top-menu />
+    <main class="flex flex-row">
       <!-- Side menu -->
-      <SideMenu />
+      <side-menu />
       <!-- Router Vue -->
-      <Router-view></Router-view>
+      <router-view />
     </main>
   </div>
 </template>
